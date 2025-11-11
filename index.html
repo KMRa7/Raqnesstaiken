@@ -8,197 +8,32 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     /* 右端の細いナビ（固定） */
-    .side-nav {
-      position: fixed;
-      right: -5px;
-      top: 80%;
-      transform: translateY(-50%) translateX(13px);
-      background: #13ca5e;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4px;
-      border-radius: 10px 0 0 10px;
-      z-index: 1000;
-      width: 35px
-    }
-
-    .side-nav a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      font-size: 10px;
-      margin: 5px 0;
-      padding: 5px;
-      border-radius: 5px;
-      width: 30px;
-      height: 30px;
-      text-align: center
-    }
-
-    .side-nav a span {
-      font-size: 24px;
-      position: absolute;
-      left: 0;
-      top: 13px
-    }
-
-    @media (max-width:600px) {
-      .side-nav {
-        right: 2px;
-        width: 30px
-      }
-
-      .side-nav a {
-        width: 28px;
-        height: 28px
-      }
-
-      .side-nav a i {
-        font-size: 12px
-      }
-    }
+    .side-nav { position: fixed; right: -5px; top: 80%; transform: translateY(-50%) translateX(13px); background: #13ca5e; display: flex; flex-direction: column; align-items: center; padding: 4px; border-radius: 10px 0 0 10px; z-index: 1000; width: 35px }
+    .side-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 10px; margin: 5px 0; padding: 5px; border-radius: 5px; width: 30px; height: 30px; text-align: center }
+    .side-nav a span { font-size: 24px; position: absolute; left: 0; top: 13px }
+    @media (max-width:600px) { .side-nav { right: 2px; width: 30px } .side-nav a { width: 28px; height: 28px } .side-nav a i { font-size: 12px } }
 
     /* ベース */
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
-      background: #e7e7e7;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      margin: 0;
-      padding: 10px
-    }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif; background: #e7e7e7; display: flex; justify-content: center; align-items: flex-start; margin: 0; padding: 10px }
+    .container { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, .08); width: 92%; max-width: 520px; padding: 22px; box-sizing: border-box; margin: 0 auto }
+    h1 { background: linear-gradient(135deg, #13ca5e, #0fa958); color: #fff; padding: 20px; border-radius: 0 15px 0 45px; text-align: center; display: block; margin: -20px -15px 20px -15px; font-size: 26px; font-weight: 700; box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .05) }
 
-    .container {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
-      width: 92%;
-      max-width: 520px;
-      padding: 22px;
-      box-sizing: border-box;
-      margin: 0 auto
-    }
+    .label { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 6px; background: #13ca5e; color: #fff; border-radius: 6px; font-weight: 700; font-size: 16px; padding: 8px 10px }
+    .label .hint { font-size: 12px; font-weight: 600; opacity: .95; background: #f1fff6; color: #064; border: 1px solid #bfead1; border-radius: 6px; padding: 2px 6px; margin-left: 8px }
+    .required { background: #ff2d2d; color: #fff; border-radius: 4px; padding: 1px 6px; margin-left: 8px; font-size: 11px }
+    .optional { background: #6c757d; color: #fff; border-radius: 4px; padding: 1px 6px; margin-left: 8px; font-size: 11px }
 
-    h1 {
-      background: linear-gradient(135deg, #13ca5e, #0fa958);
-      color: #fff;
-      padding: 20px;
-      border-radius: 0 15px 0 45px;
-      text-align: center;
-      display: block;
-      margin: -20px -15px 20px -15px;
-      font-size: 26px;
-      font-weight: 700;
-      box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .05)
-    }
-
-    .label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 14px 0 6px;
-      background: #13ca5e;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 8px 10px
-    }
-
-    .label .hint {
-      font-size: 12px;
-      font-weight: 600;
-      opacity: .95;
-      background: #f1fff6;
-      color: #064;
-      border: 1px solid #bfead1;
-      border-radius: 6px;
-      padding: 2px 6px;
-      margin-left: 8px
-    }
-
-    .required {
-      background: #ff2d2d;
-      color: #fff;
-      border-radius: 4px;
-      padding: 1px 6px;
-      margin-left: 8px;
-      font-size: 11px
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    select,
-    textarea,
-    input[type="datetime-local"] {
-      width: 100%;
-      padding: 12px;
-      border: 1.5px solid #dcdcdc;
-      border-radius: 8px;
-      box-sizing: border-box;
-      font-size: 16px;
-      background: #fff;
-      transition: border-color .2s, box-shadow .2s
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #13ca5e;
-      box-shadow: 0 0 0 3px rgba(19, 202, 94, .15)
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical
-    }
+    input[type="text"], input[type="tel"], select, textarea, input[type="datetime-local"] { width: 100%; padding: 12px; border: 1.5px solid #dcdcdc; border-radius: 8px; box-sizing: border-box; font-size: 16px; background: #fff; transition: border-color .2s, box-shadow .2s }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #13ca5e; box-shadow: 0 0 0 3px rgba(19, 202, 94, .15) }
+    textarea { min-height: 110px; resize: vertical }
 
     /* 希望日時：縦並び */
-    .dt-group {
-      margin-top: 8px;
-      margin-bottom: 10px
-    }
+    .dt-group { margin-top: 8px; margin-bottom: 10px }
+    .sub-label { font-size: 13px; font-weight: 700; color: #333; margin: 4px 0 6px; display: inline-flex; align-items: center; gap: 8px; background: #f1fff6; border: 1px solid #bfead1; border-radius: 6px; padding: 4px 8px }
 
-    .sub-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #333;
-      margin: 4px 0 6px;
-      display: inline-block;
-      background: #f1fff6;
-      border: 1px solid #bfead1;
-      border-radius: 6px;
-      padding: 4px 8px
-    }
-
-    .note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #666;
-      line-height: 1.6
-    }
-
-    .submit {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #dc3545;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer
-    }
-
-    .submit:active {
-      transform: scale(.99)
-    }
+    .note { margin-top: 10px; font-size: 12px; color: #666; line-height: 1.6 }
+    .submit { width: 100%; padding: 14px; border: none; border-radius: 10px; background: #dc3545; color: #fff; font-size: 18px; font-weight: 700; cursor: pointer }
+    .submit:active { transform: scale(.99) }
   </style>
 </head>
 
@@ -227,26 +62,23 @@
     </select>
 
     <!-- ④ 体験目的（自由記載・必須・右に例文） -->
-    <div class="label">
-      体験目的 <span class="required">必須</span>
-      <span class="hint">例：肩こり改善</span>
-    </div>
+    <div class="label">体験目的 <span class="required">必須</span><span class="hint">例：肩こり改善</span></div>
     <input type="text" id="purpose" placeholder="例：肩こり改善" />
 
-    <!-- ⑤ 希望日時（第1〜第3：すべて必須） -->
-    <div class="label">希望日時（第1〜第3） <span class="required">必須</span></div>
+    <!-- ⑤ 希望日時（第1〜第3：第1は必須／第2・第3は任意） -->
+    <div class="label">希望日時（第1〜第3） <span class="required">第1は必須・第2/第3は任意</span></div>
 
     <div class="dt-group">
-      <div class="sub-label">第1希望</div>
+      <div class="sub-label">第1希望 <span class="required">必須</span></div>
       <input type="datetime-local" id="date1" aria-label="第1希望日時" />
     </div>
     <div class="dt-group">
-      <div class="sub-label">第2希望</div>
-      <input type="datetime-local" id="date2" aria-label="第2希望日時" />
+      <div class="sub-label">第2希望 <span class="optional">任意</span></div>
+      <input type="datetime-local" id="date2" aria-label="第2希望日時（任意）" />
     </div>
     <div class="dt-group">
-      <div class="sub-label">第3希望</div>
-      <input type="datetime-local" id="date3" aria-label="第3希望日時" />
+      <div class="sub-label">第3希望 <span class="optional">任意</span></div>
+      <input type="datetime-local" id="date3" aria-label="第3希望日時（任意）" />
     </div>
 
     <!-- ⑥ 備考（任意） -->
@@ -305,15 +137,15 @@
       const date3 = document.getElementById("date3").value;
       const note = document.getElementById("note").value.trim();
 
-      // 必須チェック：①②③④⑤(第1〜第3)
+      // 必須チェック：①②③④＋第1希望のみ
       if (!name) { alert("お名前をご入力ください。"); return; }
       if (!phone) { alert("電話番号をご入力ください。"); return; }
       if (!menu) { alert("メニューを選択してください。"); return; }
       if (!purpose) { alert("体験目的をご入力ください。"); return; }
-      if (!date1 || !date2 || !date3) { alert("希望日時は第1〜第3までご入力ください。"); return; }
+      if (!date1) { alert("希望日時は第1希望をご入力ください。第2・第3は任意です。"); return; }
 
       const message =
-        `【ラクネス体験予約】
+`【ラクネス体験予約】
 お名前：${name}
 
 電話番号：${phone}
@@ -323,8 +155,8 @@
 
 【希望日時】
 ・第1希望：${formatJP(date1)}
-・第2希望：${formatJP(date2)}
-・第3希望：${formatJP(date3)}
+・第2希望：${formatJP(date2) || "（未入力）"}
+・第3希望：${formatJP(date3) || "（未入力）"}
 
 備考：${note || "（なし）"}`;
 
